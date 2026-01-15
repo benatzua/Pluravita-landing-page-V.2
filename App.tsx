@@ -11,7 +11,7 @@ type Language = 'en' | 'es' | 'de';
 
 const translations = {
   en: {
-    nav: { about: "How it works", process: "Ablauf", team: "Team", join: "Join Waitlist" },
+    nav: { about: "How it works", process: "Process", team: "Team", join: "Join Waitlist" },
     hero: {
       badge: "Mental wellbeing, redefined",
       titleStart: "Your mental wellbeing shouldn't be a",
@@ -155,7 +155,7 @@ const App: React.FC = () => {
           },
           body: JSON.stringify({ email: bottomEmail, source: 'Footer Lead collector' })
         });
-        
+
         if (response.ok) {
           setSubscribed(true);
           setBottomEmail('');
@@ -188,28 +188,28 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col selection:bg-[#9a7b5c]/30">
       <WaitlistModal lang={lang} isOpen={isWaitlistModalOpen} onClose={() => setIsWaitlistModalOpen(false)} />
-      <LegalModal 
-        lang={lang} 
-        isOpen={legalModal.isOpen} 
-        type={legalModal.type} 
-        onClose={() => setLegalModal(prev => ({ ...prev, isOpen: false }))} 
+      <LegalModal
+        lang={lang}
+        isOpen={legalModal.isOpen}
+        type={legalModal.type}
+        onClose={() => setLegalModal(prev => ({ ...prev, isOpen: false }))}
       />
-      
+
       {/* Navigation */}
       <nav className="fixed w-full z-40 bg-white bg-opacity-80 backdrop-blur-md border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20 items-center">
-            <div className="flex items-center cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
+            <div className="flex items-center cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               <Logo />
             </div>
-            
+
             <div className="flex items-center gap-4 md:gap-8">
               <div className="hidden md:flex items-center gap-6">
                 <button onClick={() => scrollTo('how-it-works')} className="text-gray-600 hover:text-[#9a7b5c] transition font-medium">{t.nav.about}</button>
                 <button onClick={() => scrollTo('process')} className="text-gray-600 hover:text-[#9a7b5c] transition font-medium">{t.nav.process}</button>
                 <button onClick={() => scrollTo('team')} className="text-gray-600 hover:text-[#9a7b5c] transition font-medium">{t.nav.team}</button>
               </div>
-              
+
               <div className="flex bg-gray-100 p-1 rounded-full text-xs font-bold">
                 {(['en', 'es', 'de'] as Language[]).map((l) => (
                   <button
@@ -222,7 +222,7 @@ const App: React.FC = () => {
                 ))}
               </div>
 
-              <button 
+              <button
                 onClick={() => setIsWaitlistModalOpen(true)}
                 className="hidden sm:block bg-[#9a7b5c] text-white px-6 py-2.5 rounded-full font-semibold hover:bg-opacity-90 transition shadow-sm"
               >
@@ -243,12 +243,12 @@ const App: React.FC = () => {
             <h1 className="text-5xl md:text-7xl font-bold text-[#4a3728] mb-8 leading-[1.1] font-serif-logo">
               {t.hero.titleStart} <span className="text-[#9a7b5c] italic font-serif-logo font-normal">{t.hero.titleItalic}.</span>
             </h1>
-            
+
             <div className="space-y-8 mb-4">
               <p className="text-xl text-gray-600 leading-relaxed max-w-xl mx-auto lg:mx-0 font-light">
                 {t.hero.description}
               </p>
-              
+
               <div className="inline-flex flex-col sm:flex-row items-center gap-6 p-1 bg-white rounded-3xl border border-[#9a7b5c]/10 shadow-sm pr-8">
                 <div className="bg-[#9a7b5c] text-white px-8 py-4 rounded-[22px] flex flex-col items-center justify-center">
                   <span className="text-4xl font-bold font-serif-logo">20€</span>
@@ -295,7 +295,7 @@ const App: React.FC = () => {
                 <span className="text-xs font-bold text-[#9a7b5c] uppercase tracking-widest">Pillar 01</span>
               </div>
             </div>
-            
+
             <div className="relative p-10 rounded-[2.5rem] bg-[#fdfaf6] border border-[#9a7b5c]/10 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group scale-105 z-10">
               <div className="absolute top-0 right-10 transform -translate-y-1/2 bg-[#9a7b5c] text-white px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Most Valued</div>
               <div className="w-16 h-16 bg-[#9a7b5c] rounded-2xl flex items-center justify-center mb-8 text-white shadow-md transition-colors">
@@ -335,7 +335,7 @@ const App: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-[#4a3728] mb-6 font-serif-logo italic">{t.cta.title}</h2>
           <p className="text-lg text-gray-600 mb-10 font-light">{t.cta.desc}</p>
-          
+
           {!subscribed ? (
             <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
               <input
@@ -383,7 +383,7 @@ const App: React.FC = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
             <div className="col-span-1 md:col-span-2">
-              <div className="mb-8 cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
+              <div className="mb-8 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                 <Logo isLight className="scale-125 origin-left" />
               </div>
               <p className="text-gray-400 max-w-sm mb-6 leading-relaxed font-light">{t.footer.desc}</p>
