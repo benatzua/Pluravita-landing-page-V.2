@@ -24,7 +24,7 @@ const translations = {
   },
   de: {
     badge: "Das Team",
-    title: "Team",
+    title: "Das Team",
     desc: "Wir setzen uns dafür ein, mentale Gesundheit durch Innovation und menschliche Verbindung zugänglich zu machen.",
     pedroBio: "Strategische Leitung und langfristige Vision für das Projektwachstum.",
     benatBio: "Verwaltung der Kernabläufe und der technischen Infrastruktur für eine reibungslose Umsetzung.",

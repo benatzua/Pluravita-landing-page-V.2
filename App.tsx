@@ -47,7 +47,9 @@ const translations = {
       copyright: "Pluravita Project. All rights reserved. In case of emergency, contact your local crisis hotline.",
       legal: "Legal",
       privacy: "Privacy Policy",
-      terms: "Terms of Service"
+      terms: "Terms of Service",
+      platform: "Platform",
+      links: { about: "About", howItWorks: "How it works", team: "Team" }
     }
   },
   es: {
@@ -87,11 +89,13 @@ const translations = {
       copyright: "Proyecto Pluravita. Todos los derechos reservados. En caso de emergencia, contacte con emergencias.",
       legal: "Legal",
       privacy: "Política de Privacidad",
-      terms: "Términos del Servicio"
+      terms: "Términos del Servicio",
+      platform: "Plataforma",
+      links: { about: "Sobre nosotros", howItWorks: "Cómo funciona", team: "Equipo" }
     }
   },
   de: {
-    nav: { about: "Wie es funktioniert", process: "Ablauf", team: "Team", join: "Warteliste" },
+    nav: { about: "Wie es funktioniert", process: "Ablauf", team: "Das Team", join: "Warteliste" },
     hero: {
       badge: "Mentale Gesundheit neu gedacht",
       titleStart: "Deine mentale Gesundheit sollte kein",
@@ -127,7 +131,9 @@ const translations = {
       copyright: "Pluravita Projekt. Alle Rechte vorbehalten. In Notfällen wenden Sie sich an den Krisendienst.",
       legal: "Rechtliches",
       privacy: "Datenschutz",
-      terms: "AGB"
+      terms: "AGB",
+      platform: "Plattform",
+      links: { about: "Über uns", howItWorks: "Wie es funktioniert", team: "Das Team" }
     }
   }
 };
@@ -390,11 +396,11 @@ const App: React.FC = () => {
             </div>
             {/* Simple footer links */}
             <div>
-              <h4 className="font-bold mb-6 text-[#9a7b5c] uppercase tracking-widest text-xs">Platform</h4>
+              <h4 className="font-bold mb-6 text-[#9a7b5c] uppercase tracking-widest text-xs">{t.footer.platform}</h4>
               <ul className="space-y-4 text-gray-400 font-light text-sm">
-                <li><button onClick={() => scrollTo('how-it-works')} className="hover:text-white transition">About</button></li>
-                <li><button onClick={() => scrollTo('process')} className="hover:text-white transition">How it works</button></li>
-                <li><button onClick={() => scrollTo('team')} className="hover:text-white transition">Team</button></li>
+                <li><button onClick={() => scrollTo('how-it-works')} className="hover:text-white transition">{t.footer.links.about}</button></li>
+                <li><button onClick={() => scrollTo('process')} className="hover:text-white transition">{t.footer.links.howItWorks}</button></li>
+                <li><button onClick={() => scrollTo('team')} className="hover:text-white transition">{t.footer.links.team}</button></li>
               </ul>
             </div>
             <div>
