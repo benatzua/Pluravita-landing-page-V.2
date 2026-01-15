@@ -10,24 +10,24 @@ const translations = {
     badge: "The Team",
     title: "Team",
     desc: "We are dedicated to making mental health an accessible priority through innovation and human connection.",
-    pedroBio: "Focuses on the clinical integrity of the platform, ensuring every session provides a safe and transformative space.",
-    benatBio: "Passionate about leveraging technology to create bridges between academic excellence and real-world emotional support.",
+    pedroBio: "Driving strategic direction and long-term vision for the project's growth.",
+    benatBio: "Managing core operations and technical infrastructure for seamless execution.",
     role: "CO-FOUNDER"
   },
   es: {
     badge: "El Equipo",
     title: "Equipo",
     desc: "Nos dedicamos a hacer de la salud mental una prioridad accesible mediante la innovación y la conexión humana.",
-    pedroBio: "Se enfoca en la integridad clínica de la plataforma, asegurando que cada sesión sea un espacio seguro y transformador.",
-    benatBio: "Apasionado por usar la tecnología para tender puentes entre la excelencia académica y el apoyo emocional real.",
+    pedroBio: "Impulsando la dirección estratégica y la visión a largo plazo para el crecimiento del proyecto.",
+    benatBio: "Gestionando las operaciones principales y la infraestructura técnica para una ejecución fluida.",
     role: "CO-FUNDADOR"
   },
   de: {
     badge: "Das Team",
     title: "Team",
     desc: "Wir setzen uns dafür ein, mentale Gesundheit durch Innovation und menschliche Verbindung zugänglich zu machen.",
-    pedroBio: "Konzentriert sich auf die klinische Integrität, damit jede Sitzung ein sicherer und transformativer Raum ist.",
-    benatBio: "Begeistert davon, Technologie zu nutzen, um Brücken zwischen akademischer Exzellenz und emotionaler Hilfe zu schlagen.",
+    pedroBio: "Strategische Leitung und langfristige Vision für das Projektwachstum.",
+    benatBio: "Verwaltung der Kernabläufe und der technischen Infrastruktur für eine reibungslose Umsetzung.",
     role: "MITGRÜNDER"
   }
 };
