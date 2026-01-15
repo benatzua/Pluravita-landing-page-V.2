@@ -39,13 +39,13 @@ const Team: React.FC<TeamProps> = ({ lang }) => {
     {
       name: "Pedro San Miguel",
       role: t.role,
-      image: "input_file_0.png", // Primera foto (Pedro)
+      image: "/pedro.jpg", // Primera foto (Pedro)
       description: t.pedroBio
     },
     {
       name: "Beñat Zuazubizkar",
       role: t.role,
-      image: "input_file_1.png", // Segunda foto (Beñat)
+      image: "/benat.jpg", // Segunda foto (Beñat)
       description: t.benatBio
     }
   ];
@@ -68,14 +68,14 @@ const Team: React.FC<TeamProps> = ({ lang }) => {
             <div key={index} className="group flex flex-col items-center md:items-start">
               {/* Frame Style from input_file_0.png */}
               <div className="relative w-full overflow-hidden rounded-[3.5rem] aspect-[1/1.1] bg-[#fbf9f6] shadow-sm transition-all duration-700 group-hover:shadow-xl group-hover:-translate-y-2 border border-[#f0ede8]">
-                <img 
-                  src={member.image} 
-                  alt={member.name} 
+                <img
+                  src={member.image}
+                  alt={member.name}
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 />
-                
+
                 <div className="absolute inset-0 bg-gradient-to-t from-[#2d2621]/90 via-[#2d2621]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
+
                 <div className="absolute inset-0 flex flex-col justify-end p-10 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
                   <p className="text-white text-base font-light leading-relaxed italic">
                     "{member.description}"
