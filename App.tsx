@@ -38,6 +38,7 @@ const translations = {
       desc: "Be the first to know when a therapist becomes available. We are slowly opening slots to ensure the best care for everyone.",
       placeholder: "Your email address",
       button: "Join the Waitlist",
+      loading: "Joining...",
       thanks: "Thank you! We'll be in touch soon.",
       disclaimer: "By joining, you agree to receive updates. You can unsubscribe at any time."
     },
@@ -77,6 +78,7 @@ const translations = {
       desc: "Sé el primero en saber cuándo hay un terapeuta disponible. Abrimos plazas gradualmente para garantizar la mejor atención.",
       placeholder: "Tu correo electrónico",
       button: "Unirse a la lista",
+      loading: "Uniéndote...",
       thanks: "¡Gracias! Nos pondremos en contacto pronto.",
       disclaimer: "Al unirte, aceptas recibir actualizaciones. Puedes darte de baja en cualquier momento."
     },
@@ -116,6 +118,7 @@ const translations = {
       desc: "Erfahren Sie als Erster, wenn ein Therapieplatz frei wird. Wir öffnen Plätze schrittweise, um beste Qualität zu garantieren.",
       placeholder: "Deine E-Mail-Adresse",
       button: "Auf die Warteliste",
+      loading: "Wird beigefügt...",
       thanks: "Danke! Wir melden uns bald.",
       disclaimer: "Mit Ihrer Anmeldung erklären Sie sich mit Updates einverstanden. Abmeldung jederzeit möglich."
     },
@@ -133,16 +136,35 @@ const App: React.FC = () => {
   const [lang, setLang] = useState<Language>('en');
   const [bottomEmail, setBottomEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isWaitlistModalOpen, setIsWaitlistModalOpen] = useState(false);
   const [legalModal, setLegalModal] = useState<{ isOpen: boolean; type: 'privacy' | 'terms' }>({ isOpen: false, type: 'privacy' });
 
   const t = translations[lang];
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (bottomEmail) {
-      setSubscribed(true);
-      setBottomEmail('');
+    if (bottomEmail && !isSubmitting) {
+      setIsSubmitting(true);
+      try {
+        const response = await fetch('https://formspree.io/f/xldqwnej', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({ email: bottomEmail, source: 'Footer Lead collector' })
+        });
+        
+        if (response.ok) {
+          setSubscribed(true);
+          setBottomEmail('');
+        }
+      } catch (error) {
+        console.error("Error submitting bottom form:", error);
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -318,17 +340,28 @@ const App: React.FC = () => {
             <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
               <input
                 type="email"
+                name="email"
                 required
                 placeholder={t.cta.placeholder}
                 className="flex-1 px-6 py-4 rounded-full border border-gray-200 focus:ring-2 focus:ring-[#9a7b5c] outline-none shadow-sm"
                 value={bottomEmail}
                 onChange={(e) => setBottomEmail(e.target.value)}
+                disabled={isSubmitting}
               />
               <button
                 type="submit"
-                className="bg-[#9a7b5c] text-white px-8 py-4 rounded-full font-bold shadow-lg hover:bg-[#86694e] transition transform hover:-translate-y-1"
+                disabled={isSubmitting}
+                className={`bg-[#9a7b5c] text-white px-8 py-4 rounded-full font-bold shadow-lg hover:bg-[#86694e] transition transform hover:-translate-y-1 flex items-center justify-center min-w-[180px] ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
               >
-                {t.cta.button}
+                {isSubmitting ? (
+                  <>
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    {t.cta.loading}
+                  </>
+                ) : t.cta.button}
               </button>
             </form>
           ) : (
