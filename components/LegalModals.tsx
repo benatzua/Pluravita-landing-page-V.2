@@ -33,7 +33,7 @@ const content = {
         <h4 class="font-bold mt-4 mb-2">2. Emergency Situations</h4>
         <p class="mb-4">Pluravita is not a crisis service. If you are experiencing a life-threatening emergency or thoughts of self-harm, please contact your local emergency services (e.g., 911, 112) or a crisis hotline immediately.</p>
         <h4 class="font-bold mt-4 mb-2">3. Fees and Payments</h4>
-        <p class="mb-4">Sessions are priced at 20€ per session. Payments are processed securely via our platform. Refunds are handled on a case-by-case basis according to our cancellation policy.</p>
+        <p class="mb-4">Sessions are priced competitively. Payments are processed securely via our platform. Refunds are handled on a case-by-case basis according to our cancellation policy.</p>
         <h4 class="font-bold mt-4 mb-2">4. User Conduct</h4>
         <p class="mb-4">Users agree to treat student therapists with respect. We reserve the right to terminate service for any abusive behavior.</p>
       `
@@ -61,7 +61,7 @@ const content = {
         <h4 class="font-bold mt-4 mb-2">2. Situaciones de Emergencia</h4>
         <p class="mb-4">Pluravita no es un servicio de crisis. Si te encuentras en una situación de riesgo vital, contacta inmediatamente con el 112 o servicios de emergencia locales.</p>
         <h4 class="font-bold mt-4 mb-2">3. Tarifas</h4>
-        <p class="mb-4">Las sesiones tienen un coste de 20€. Los pagos se realizan de forma segura a través de la plataforma.</p>
+        <p class="mb-4">Las sesiones tienen un coste accesible diseñado para fomentar el bienestar mental. Los pagos se realizan de forma segura a través de la plataforma.</p>
       `
     }
   },

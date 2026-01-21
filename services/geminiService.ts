@@ -1,11 +1,25 @@
 
 import { GoogleGenAI } from "@google/genai";
 
-// Always use process.env.API_KEY directly without fallback as per @google/genai guidelines
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Acceso seguro a la API Key para evitar errores de referencia inmediatos
+const getApiKey = () => {
+  try {
+    return process.env.API_KEY || '';
+  } catch (e) {
+    return '';
+  }
+};
 
 export const getSupportiveResponse = async (userMessage: string) => {
+  const apiKey = getApiKey();
+  
+  if (!apiKey) {
+    console.warn("Pluravita: No se encontró la API Key de Gemini. Usando respuestas de respaldo.");
+    return "Estoy aquí para escucharte. Parece que las cosas son difíciles ahora mismo. ¿Te gustaría contarme más o quizás unirte a nuestra lista de espera para hablar con uno de nuestros estudiantes de psicología?";
+  }
+
   try {
+    const ai = new GoogleGenAI({ apiKey });
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: userMessage,
@@ -14,10 +28,9 @@ export const getSupportiveResponse = async (userMessage: string) => {
         temperature: 0.7,
       },
     });
-    // The response.text is a property, not a method.
     return response.text;
   } catch (error) {
-    console.error("Gemini Error:", error);
-    return "I'm here for you. It sounds like things are tough right now. Would you like to tell me more, or perhaps join our waitlist to talk with one of our human student therapists?";
+    console.error("Error en Gemini:", error);
+    return "Lo siento, estoy teniendo problemas para conectar ahora mismo. Pero recuerda que no estás solo/a y estamos aquí para apoyarte.";
   }
 };

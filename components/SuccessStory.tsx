@@ -13,7 +13,6 @@ const translations = {
     desc: "Pluravita isn't just an idea—it's inspired by a highly successful initiative in Finland. By connecting students with those in need, the model reduced wait times drastically.",
     stat1: "Reduction in Wait Time",
     stat2: "More Sessions Yearly",
-    thousands: "Thousands",
     chartTitle: "Impact on Wait Times",
     chartLabel1: "Before System",
     chartLabel2: "After System",
@@ -25,7 +24,6 @@ const translations = {
     desc: "Pluravita se inspira en una iniciativa de gran éxito en Finlandia. Al conectar estudiantes con personas necesitadas, el modelo redujo los tiempos de espera drásticamente.",
     stat1: "Reducción de Esperas",
     stat2: "Sesiones Anuales Extra",
-    thousands: "Miles",
     chartTitle: "Impacto en Tiempos de Espera",
     chartLabel1: "Antes del Sistema",
     chartLabel2: "Después del Sistema",
@@ -37,7 +35,6 @@ const translations = {
     desc: "Pluravita ist von einer erfolgreichen Initiative in Finnland inspiriert. Durch die Einbindung von Studenten konnten die Wartezeiten drastisch reduziert werden.",
     stat1: "Kürzere Wartezeit",
     stat2: "Mehr Sitzungen jährlich",
-    thousands: "Tausende",
     chartTitle: "Einfluss auf Wartezeiten",
     chartLabel1: "Vor dem System",
     chartLabel2: "Nach dem System",
@@ -74,21 +71,21 @@ const SuccessStory: React.FC<SuccessStoryProps> = ({ lang }) => {
               </div>
               <div className="h-12 w-px bg-white bg-opacity-20"></div>
               <div>
-                <div className="text-4xl md:text-6xl font-bold mb-1">{t.thousands}</div>
+                <div className="text-4xl md:text-6xl font-bold mb-1">Thousands</div>
                 <div className="text-sm uppercase tracking-wider text-white text-opacity-60">{t.stat2}</div>
               </div>
             </div>
           </div>
-
+          
           <div className="lg:w-1/2 bg-[#fdfaf6] rounded-3xl p-8 shadow-2xl h-[400px] w-full border border-white/20">
             <h4 className="text-[#4a3728] font-bold mb-8 text-center text-xl font-serif-logo">{t.chartTitle}</h4>
             <ResponsiveContainer width="100%" height="80%">
               <BarChart data={chartData} margin={{ top: 20, right: 30, left: 0, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
-                <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fill: '#9a7b5c' }} />
+                <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fill: '#9a7b5c'}} />
                 <YAxis hide />
-                <Tooltip
-                  cursor={{ fill: 'transparent' }}
+                <Tooltip 
+                  cursor={{fill: 'transparent'}}
                   content={({ active, payload }) => {
                     if (active && payload && payload.length) {
                       return (
