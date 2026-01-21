@@ -71,7 +71,7 @@ const Team: React.FC<TeamProps> = ({ lang }) => {
                 <img
                   src={member.image}
                   alt={member.name}
-                  className={`w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 ${member.name.includes('Pedro') ? 'brightness-[0.98] contrast-[1.05] sepia-[5%] saturate-[1.1]' : ''}`}
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-[#2d2621]/90 via-[#2d2621]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
