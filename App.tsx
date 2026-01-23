@@ -1,12 +1,12 @@
 
-import React, { useState, useEffect } from 'react';
-import WaitlistModal from './components/WaitlistModal';
-import Process from './components/Process';
-import SuccessStory from './components/SuccessStory';
-import Logo from './components/Logo';
-import Team from './components/Team';
-import LegalModal from './components/LegalModals';
-import SupportChat from './components/SupportChat';
+import React, { useState } from 'react';
+import WaitlistModal from './components/WaitlistModal.tsx';
+import Process from './components/Process.tsx';
+import SuccessStory from './components/SuccessStory.tsx';
+import Logo from './components/Logo.tsx';
+import Team from './components/Team.tsx';
+import LegalModal from './components/LegalModals.tsx';
+import SupportChat from './components/SupportChat.tsx';
 
 type Language = 'en' | 'es' | 'de';
 
@@ -125,14 +125,8 @@ const App: React.FC = () => {
   const [isSubmittingHero, setIsSubmittingHero] = useState(false);
   const [isWaitlistModalOpen, setIsWaitlistModalOpen] = useState(false);
   const [legalModal, setLegalModal] = useState<{ isOpen: boolean; type: 'privacy' | 'terms' }>({ isOpen: false, type: 'privacy' });
-  const [currentOrigin, setCurrentOrigin] = useState('');
 
   const t = translations[lang];
-
-  useEffect(() => {
-    // Capturamos el origen para pasarlo al iframe de YouTube y evitar el Error 153
-    setCurrentOrigin(window.location.origin);
-  }, []);
 
   const handleHeroSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -297,18 +291,16 @@ const App: React.FC = () => {
 
           <div className="lg:w-2/5 w-full relative">
             <div className="relative w-full rounded-[4rem] shadow-[0_60px_100px_-20px_rgba(74,55,40,0.5)] border-[12px] border-white overflow-hidden bg-black aspect-video transition-all duration-500">
-              {currentOrigin && (
-                <iframe 
-                  width="100%"
-                  height="100%"
-                  src={`https://www.youtube.com/embed/a6AtqACERTo?enablejsapi=1&rel=0&origin=${encodeURIComponent(currentOrigin)}`} 
-                  title="Pluravita Video Presentation"
-                  className="absolute inset-0 w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                ></iframe>
-              )}
+              <iframe 
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/a6AtqACERTo?rel=0" 
+                title="Pluravita Video Presentation"
+                className="absolute inset-0 w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="no-referrer"
+                allowFullScreen
+              ></iframe>
             </div>
             {/* Ambient Background Glows */}
             <div className="absolute -top-16 -right-16 w-80 h-80 bg-[#9a7b5c] bg-opacity-[0.08] rounded-full blur-[120px] pointer-events-none"></div>

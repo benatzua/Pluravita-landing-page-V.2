@@ -1,7 +1,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { ChatMessage } from '../types';
-import { getSupportiveResponse } from '../services/geminiService';
+import { ChatMessage } from '../types.ts';
+import { getSupportiveResponse } from '../services/geminiService.ts';
 
 interface SupportChatProps {
   lang: 'en' | 'es' | 'de';
