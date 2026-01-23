@@ -74,11 +74,11 @@ const translations = {
       speedDesc: "Deja de esperar 20 semanas. Evitamos los cuellos de botella del sistema para ofrecerte un lugar seguro cuando más lo necesitas: ahora mismo."
     },
     footer: {
-      desc: "Redefiniendo el acceso a la salud mental mediante un puente sostenible entre la formación y el apoyo emocional.",
-      copyright: "Proyecto Pluravita. Todos los derechos reservados. En caso de emergencia, contacte con emergencias.",
+      desc: "Redefining mental healthcare accessibility through a sustainable bridge between education and emotional support.",
+      copyright: "Pluravita Project. All rights reserved. In case of emergency, contact your local crisis hotline.",
       legal: "Legal",
-      privacy: "Política de Privacidad",
-      terms: "Términos del Servicio"
+      privacy: "Privacy Policy",
+      terms: "Terms of Service"
     }
   },
   de: {
