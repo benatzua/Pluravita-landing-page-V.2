@@ -1,12 +1,12 @@
 
 import React, { useState } from 'react';
-import WaitlistModal from './components/WaitlistModal.tsx';
-import Process from './components/Process.tsx';
-import SuccessStory from './components/SuccessStory.tsx';
-import Logo from './components/Logo.tsx';
-import Team from './components/Team.tsx';
-import LegalModal from './components/LegalModals.tsx';
-import SupportChat from './components/SupportChat.tsx';
+import WaitlistModal from './components/WaitlistModal';
+import Process from './components/Process';
+import SuccessStory from './components/SuccessStory';
+import Logo from './components/Logo';
+import Team from './components/Team';
+import LegalModal from './components/LegalModals';
+import SupportChat from './components/SupportChat';
 
 type Language = 'en' | 'es' | 'de';
 
@@ -294,13 +294,7 @@ const App: React.FC = () => {
 
           <div className="lg:w-2/5 relative">
             <div className="relative z-10 rounded-[4rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(74,55,40,0.3)] border-[12px] border-white">
-              <iframe 
-                className="w-full aspect-video" 
-                src="https://www.youtube.com/embed/a6AtqACERTo" 
-                title="YouTube video player" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowFullScreen 
-              />
+              <img src="/assets/hero.png" alt="Healing space" className="w-full h-auto grayscale-[20%] sepia-[10%] opacity-90 scale-110 hover:scale-100 transition-transform duration-1000" />
             </div>
             <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#9a7b5c] bg-opacity-10 rounded-full blur-[100px]"></div>
             <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-[#9a7b5c] bg-opacity-10 rounded-full blur-[100px]"></div>
