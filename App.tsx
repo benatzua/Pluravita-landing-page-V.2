@@ -293,8 +293,16 @@ const App: React.FC = () => {
           </div>
 
           <div className="lg:w-2/5 relative">
-            <div className="relative z-10 rounded-[4rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(74,55,40,0.3)] border-[12px] border-white">
-              <img src="/assets/hero.png" alt="Healing space" className="w-full h-auto grayscale-[20%] sepia-[10%] opacity-90 scale-110 hover:scale-100 transition-transform duration-1000" />
+            <div className="relative z-10 rounded-[4rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(74,55,40,0.3)] border-[12px] border-white aspect-video bg-black">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/a6AtqACERTo?rel=0&modestbranding=1"
+                title="¿QUE ES PLURAVITA?"
+                className="w-full h-full"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              ></iframe>
             </div>
             <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#9a7b5c] bg-opacity-10 rounded-full blur-[100px]"></div>
             <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-[#9a7b5c] bg-opacity-10 rounded-full blur-[100px]"></div>
