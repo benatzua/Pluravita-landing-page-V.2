@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Step } from '../types.ts';
+import { Step } from '../types';
 
 interface ProcessProps {
   lang: 'en' | 'es' | 'de';

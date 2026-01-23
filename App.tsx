@@ -1,12 +1,12 @@
 
 import React, { useState } from 'react';
-import WaitlistModal from './components/WaitlistModal.tsx';
-import Process from './components/Process.tsx';
-import SuccessStory from './components/SuccessStory.tsx';
-import Logo from './components/Logo.tsx';
-import Team from './components/Team.tsx';
-import LegalModal from './components/LegalModals.tsx';
-import SupportChat from './components/SupportChat.tsx';
+import WaitlistModal from './components/WaitlistModal';
+import Process from './components/Process';
+import SuccessStory from './components/SuccessStory';
+import Logo from './components/Logo';
+import Team from './components/Team';
+import LegalModal from './components/LegalModals';
+import SupportChat from './components/SupportChat';
 
 type Language = 'en' | 'es' | 'de';
 
@@ -141,7 +141,7 @@ const App: React.FC = () => {
           },
           body: JSON.stringify({ email: heroEmail, source: 'Hero Striking Title' })
         });
-
+        
         if (response.ok) {
           setHeroSubscribed(true);
           setHeroEmail('');
@@ -174,28 +174,28 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col selection:bg-[#9a7b5c]/30">
       <WaitlistModal lang={lang} isOpen={isWaitlistModalOpen} onClose={() => setIsWaitlistModalOpen(false)} />
-      <LegalModal
-        lang={lang}
-        isOpen={legalModal.isOpen}
-        type={legalModal.type}
-        onClose={() => setLegalModal(prev => ({ ...prev, isOpen: false }))}
+      <LegalModal 
+        lang={lang} 
+        isOpen={legalModal.isOpen} 
+        type={legalModal.type} 
+        onClose={() => setLegalModal(prev => ({ ...prev, isOpen: false }))} 
       />
-
+      
       {/* Navigation */}
       <nav className="fixed w-full z-40 bg-white/80 backdrop-blur-md border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20 items-center">
-            <div className="flex items-center cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <div className="flex items-center cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
               <Logo />
             </div>
-
+            
             <div className="flex items-center gap-4 md:gap-8">
               <div className="hidden md:flex items-center gap-6">
                 <button onClick={() => scrollTo('how-it-works')} className="text-gray-600 hover:text-[#9a7b5c] transition font-medium">{t.nav.about}</button>
                 <button onClick={() => scrollTo('process')} className="text-gray-600 hover:text-[#9a7b5c] transition font-medium">{t.nav.process}</button>
                 <button onClick={() => scrollTo('team')} className="text-gray-600 hover:text-[#9a7b5c] transition font-medium">{t.nav.team}</button>
               </div>
-
+              
               <div className="flex bg-gray-100 p-1 rounded-full text-xs font-bold">
                 {(['en', 'es', 'de'] as Language[]).map((l) => (
                   <button
@@ -208,7 +208,7 @@ const App: React.FC = () => {
                 ))}
               </div>
 
-              <button
+              <button 
                 onClick={() => setIsWaitlistModalOpen(true)}
                 className="hidden sm:block bg-[#9a7b5c] text-white px-6 py-2.5 rounded-full font-semibold hover:bg-[#86694e] transition shadow-md active:scale-95"
               >
@@ -229,7 +229,7 @@ const App: React.FC = () => {
             <h1 className="text-5xl md:text-8xl font-black text-[#4a3728] mb-8 leading-[1.1] font-serif-logo">
               {t.hero.titleStart} <span className="text-[#9a7b5c] italic font-serif-logo font-normal">{t.hero.titleItalic}.</span>
             </h1>
-
+            
             <p className="text-xl md:text-2xl text-gray-500 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-light mb-12">
               {t.hero.description}
             </p>
@@ -253,7 +253,7 @@ const App: React.FC = () => {
 
                   {/* Main Form */}
                   <form onSubmit={handleHeroSubscribe} className="flex flex-col sm:flex-row gap-3 bg-white p-3 rounded-[2.5rem] shadow-2xl border border-white focus-within:ring-4 focus-within:ring-[#9a7b5c]/10 transition-all duration-500">
-                    <input
+                    <input 
                       type="email"
                       required
                       placeholder={t.hero.inputPlaceholder}
@@ -262,7 +262,7 @@ const App: React.FC = () => {
                       onChange={(e) => setHeroEmail(e.target.value)}
                       disabled={isSubmittingHero}
                     />
-                    <button
+                    <button 
                       type="submit"
                       disabled={isSubmittingHero}
                       className="bg-[#4a3728] hover:bg-[#2d2621] text-white px-10 py-5 rounded-[2rem] font-bold shadow-lg transition-all flex items-center justify-center whitespace-nowrap active:scale-95 text-lg"
@@ -293,8 +293,16 @@ const App: React.FC = () => {
           </div>
 
           <div className="lg:w-2/5 relative">
-            <div className="relative z-10 rounded-[4rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(74,55,40,0.3)] border-[12px] border-white">
-              <img src="/assets/hero.png" alt="Healing space" className="w-full h-auto grayscale-[20%] sepia-[10%] opacity-90 scale-110 hover:scale-100 transition-transform duration-1000" />
+            <div className="relative z-10 rounded-[4rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(74,55,40,0.3)] border-[12px] border-white aspect-video bg-black">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/a6AtqACERTo?rel=0&modestbranding=1" 
+                title="¿QUE ES PLURAVITA?"
+                className="w-full h-full"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              ></iframe>
             </div>
             <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#9a7b5c] bg-opacity-10 rounded-full blur-[100px]"></div>
             <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-[#9a7b5c] bg-opacity-10 rounded-full blur-[100px]"></div>
@@ -323,7 +331,7 @@ const App: React.FC = () => {
               <h3 className="text-2xl font-bold mb-4 text-[#4a3728] font-serif-logo leading-tight">{t.features.students}</h3>
               <p className="text-gray-600 leading-relaxed font-light">{t.features.studentsDesc}</p>
             </div>
-
+            
             <div className="relative p-10 rounded-[3rem] bg-[#fdfaf6] border border-[#9a7b5c]/10 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group scale-105 z-10">
               <div className="absolute top-0 right-10 transform -translate-y-1/2 bg-[#9a7b5c] text-white px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em]">Most Valued</div>
               <div className="w-16 h-16 bg-[#9a7b5c] rounded-2xl flex items-center justify-center mb-8 text-white shadow-md transition-colors">
@@ -350,7 +358,7 @@ const App: React.FC = () => {
       <Process lang={lang} />
       <SuccessStory lang={lang} />
       <Team lang={lang} />
-
+      
       <SupportChat lang={lang} />
 
       {/* Footer */}
@@ -358,7 +366,7 @@ const App: React.FC = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
             <div className="col-span-1 md:col-span-2">
-              <div className="mb-8 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              <div className="mb-8 cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
                 <Logo isLight className="scale-150 origin-left" />
               </div>
               <p className="text-gray-400 max-w-sm mb-6 leading-relaxed font-light text-sm">{t.footer.desc}</p>
