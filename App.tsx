@@ -141,7 +141,7 @@ const App: React.FC = () => {
           },
           body: JSON.stringify({ email: heroEmail, source: 'Hero Striking Title' })
         });
-        
+
         if (response.ok) {
           setHeroSubscribed(true);
           setHeroEmail('');
@@ -174,28 +174,28 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col selection:bg-[#9a7b5c]/30">
       <WaitlistModal lang={lang} isOpen={isWaitlistModalOpen} onClose={() => setIsWaitlistModalOpen(false)} />
-      <LegalModal 
-        lang={lang} 
-        isOpen={legalModal.isOpen} 
-        type={legalModal.type} 
-        onClose={() => setLegalModal(prev => ({ ...prev, isOpen: false }))} 
+      <LegalModal
+        lang={lang}
+        isOpen={legalModal.isOpen}
+        type={legalModal.type}
+        onClose={() => setLegalModal(prev => ({ ...prev, isOpen: false }))}
       />
-      
+
       {/* Navigation */}
       <nav className="fixed w-full z-40 bg-white/80 backdrop-blur-md border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20 items-center">
-            <div className="flex items-center cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
+            <div className="flex items-center cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               <Logo />
             </div>
-            
+
             <div className="flex items-center gap-4 md:gap-8">
               <div className="hidden md:flex items-center gap-6">
                 <button onClick={() => scrollTo('how-it-works')} className="text-gray-600 hover:text-[#9a7b5c] transition font-medium">{t.nav.about}</button>
                 <button onClick={() => scrollTo('process')} className="text-gray-600 hover:text-[#9a7b5c] transition font-medium">{t.nav.process}</button>
                 <button onClick={() => scrollTo('team')} className="text-gray-600 hover:text-[#9a7b5c] transition font-medium">{t.nav.team}</button>
               </div>
-              
+
               <div className="flex bg-gray-100 p-1 rounded-full text-xs font-bold">
                 {(['en', 'es', 'de'] as Language[]).map((l) => (
                   <button
@@ -208,7 +208,7 @@ const App: React.FC = () => {
                 ))}
               </div>
 
-              <button 
+              <button
                 onClick={() => setIsWaitlistModalOpen(true)}
                 className="hidden sm:block bg-[#9a7b5c] text-white px-6 py-2.5 rounded-full font-semibold hover:bg-[#86694e] transition shadow-md active:scale-95"
               >
@@ -222,14 +222,14 @@ const App: React.FC = () => {
       {/* Hero Section */}
       <header className="pt-36 pb-20 md:pt-52 md:pb-32 px-4 bg-[#f9f6f2]">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
-          <div className="lg:w-3/5 text-center lg:text-left">
+          <div className="lg:w-1/2 text-center lg:text-left">
             <div className="inline-block px-4 py-1.5 bg-[#9a7b5c] bg-opacity-10 text-[#9a7b5c] rounded-full text-xs font-bold mb-6 uppercase tracking-[0.2em]">
               {t.hero.badge}
             </div>
             <h1 className="text-5xl md:text-8xl font-black text-[#4a3728] mb-8 leading-[1.1] font-serif-logo">
               {t.hero.titleStart} <span className="text-[#9a7b5c] italic font-serif-logo font-normal">{t.hero.titleItalic}.</span>
             </h1>
-            
+
             <p className="text-xl md:text-2xl text-gray-500 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-light mb-12">
               {t.hero.description}
             </p>
@@ -250,7 +250,7 @@ const App: React.FC = () => {
                   </div>
 
                   <form onSubmit={handleHeroSubscribe} className="flex flex-col sm:flex-row gap-3 bg-white p-3 rounded-[2.5rem] shadow-2xl border border-white focus-within:ring-4 focus-within:ring-[#9a7b5c]/10 transition-all duration-500">
-                    <input 
+                    <input
                       type="email"
                       required
                       placeholder={t.hero.inputPlaceholder}
@@ -259,7 +259,7 @@ const App: React.FC = () => {
                       onChange={(e) => setHeroEmail(e.target.value)}
                       disabled={isSubmittingHero}
                     />
-                    <button 
+                    <button
                       type="submit"
                       disabled={isSubmittingHero}
                       className="bg-[#4a3728] hover:bg-[#2d2621] text-white px-10 py-5 rounded-[2rem] font-bold shadow-lg transition-all flex items-center justify-center whitespace-nowrap active:scale-95 text-lg"
@@ -289,22 +289,36 @@ const App: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:w-2/5 w-full relative">
-            <div className="relative w-full rounded-[4rem] shadow-[0_60px_100px_-20px_rgba(74,55,40,0.5)] border-[12px] border-white overflow-hidden bg-black aspect-video transition-all duration-500">
-              <iframe 
+          <div className="lg:w-1/2 w-full relative group">
+            <div className="relative z-10 w-full rounded-[3rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(74,55,40,0.3)] border-[8px] border-white/80 backdrop-blur-sm aspect-video transition-all duration-700 group-hover:scale-[1.02] group-hover:shadow-[0_80px_120px_-20px_rgba(74,55,40,0.4)] bg-[#2d2621]">
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#9a7b5c]/10 to-transparent pointer-events-none z-10"></div>
+              <iframe
                 width="100%"
                 height="100%"
-                src="https://www.youtube.com/embed/a6AtqACERTo?rel=0" 
+                src="https://www.youtube.com/embed/a6AtqACERTo?autoplay=1&mute=1&enablejsapi=1&rel=0&modestbranding=1"
                 title="Pluravita Video Presentation"
-                className="absolute inset-0 w-full h-full"
+                className="absolute inset-0 w-full h-full z-0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="no-referrer"
+                referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
               ></iframe>
             </div>
+
+            {/* Live Badge Enhancement */}
+            <div className="absolute -top-4 -left-4 z-20 bg-red-600 text-white px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.2em] flex items-center gap-2 shadow-xl border-2 border-white animate-in zoom-in duration-700 delay-500">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+              </span>
+              Live Presentation
+            </div>
+
+            {/* Decorative Elements */}
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#9a7b5c]/20 rounded-2xl blur-2xl -z-10 group-hover:bg-[#9a7b5c]/30 transition-colors duration-700"></div>
+
             {/* Ambient Background Glows */}
-            <div className="absolute -top-16 -right-16 w-80 h-80 bg-[#9a7b5c] bg-opacity-[0.08] rounded-full blur-[120px] pointer-events-none"></div>
-            <div className="absolute -bottom-16 -left-16 w-80 h-80 bg-[#9a7b5c] bg-opacity-[0.08] rounded-full blur-[120px] pointer-events-none"></div>
+            <div className="absolute -top-20 -right-20 w-96 h-96 bg-[#9a7b5c] bg-opacity-[0.1] rounded-full blur-[120px] pointer-events-none"></div>
+            <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-[#9a7b5c] bg-opacity-[0.1] rounded-full blur-[120px] pointer-events-none"></div>
           </div>
         </div>
       </header>
@@ -330,7 +344,7 @@ const App: React.FC = () => {
               <h3 className="text-2xl font-bold mb-4 text-[#4a3728] font-serif-logo leading-tight">{t.features.students}</h3>
               <p className="text-gray-600 leading-relaxed font-light">{t.features.studentsDesc}</p>
             </div>
-            
+
             <div className="relative p-10 rounded-[3rem] bg-[#fdfaf6] border border-[#9a7b5c]/10 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group scale-105 z-10">
               <div className="absolute top-0 right-10 transform -translate-y-1/2 bg-[#9a7b5c] text-white px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em]">Most Valued</div>
               <div className="w-16 h-16 bg-[#9a7b5c] rounded-2xl flex items-center justify-center mb-8 text-white shadow-md transition-colors">
@@ -357,7 +371,7 @@ const App: React.FC = () => {
       <Process lang={lang} />
       <SuccessStory lang={lang} />
       <Team lang={lang} />
-      
+
       <SupportChat lang={lang} />
 
       {/* Footer */}
@@ -365,7 +379,7 @@ const App: React.FC = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
             <div className="col-span-1 md:col-span-2">
-              <div className="mb-8 cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
+              <div className="mb-8 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                 <Logo isLight className="scale-150 origin-left" />
               </div>
               <p className="text-gray-400 max-w-sm mb-6 leading-relaxed font-light text-sm">{t.footer.desc}</p>
