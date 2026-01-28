@@ -312,14 +312,6 @@ const App: React.FC = () => {
               )}
             </div>
 
-            {/* Live Badge Enhancement */}
-            <div className="absolute -top-4 -left-4 z-20 bg-red-600 text-white px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.2em] flex items-center gap-2 shadow-xl border-2 border-white animate-in zoom-in duration-700 delay-500">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
-              </span>
-              Live Presentation
-            </div>
 
             {/* Decorative Elements */}
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#9a7b5c]/20 rounded-2xl blur-2xl -z-10 group-hover:bg-[#9a7b5c]/30 transition-colors duration-700"></div>
