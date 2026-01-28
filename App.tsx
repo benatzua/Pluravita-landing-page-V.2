@@ -125,8 +125,14 @@ const App: React.FC = () => {
   const [isSubmittingHero, setIsSubmittingHero] = useState(false);
   const [isWaitlistModalOpen, setIsWaitlistModalOpen] = useState(false);
   const [legalModal, setLegalModal] = useState<{ isOpen: boolean; type: 'privacy' | 'terms' }>({ isOpen: false, type: 'privacy' });
+  const [currentOrigin, setCurrentOrigin] = useState('');
 
   const t = translations[lang];
+
+  useEffect(() => {
+    // Capturamos el origen para pasarlo al iframe de YouTube y evitar el Error 153
+    setCurrentOrigin(window.location.origin);
+  }, []);
 
   const handleHeroSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -292,16 +298,18 @@ const App: React.FC = () => {
           <div className="lg:w-1/2 w-full relative group">
             <div className="relative z-10 w-full rounded-[3rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(74,55,40,0.3)] border-[8px] border-white/80 backdrop-blur-sm aspect-video transition-all duration-700 group-hover:scale-[1.02] group-hover:shadow-[0_80px_120px_-20px_rgba(74,55,40,0.4)] bg-[#2d2621]">
               <div className="absolute inset-0 bg-gradient-to-tr from-[#9a7b5c]/10 to-transparent pointer-events-none z-10"></div>
-              <iframe
-                width="100%"
-                height="100%"
-                src="https://www.youtube.com/embed/a6AtqACERTo?autoplay=1&mute=1&enablejsapi=1&rel=0&modestbranding=1"
-                title="Pluravita Video Presentation"
-                className="absolute inset-0 w-full h-full z-0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-              ></iframe>
+              {currentOrigin && (
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src={`https://www.youtube.com/embed/a6AtqACERTo?autoplay=1&mute=1&enablejsapi=1&rel=0&modestbranding=1&origin=${encodeURIComponent(currentOrigin)}`}
+                  title="Pluravita Video Presentation"
+                  className="absolute inset-0 w-full h-full z-0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                ></iframe>
+              )}
             </div>
 
             {/* Live Badge Enhancement */}
